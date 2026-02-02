@@ -110,25 +110,23 @@ You should see version information displayed.
 
 ### Note about /sdcard/ and noexec flag
 
-Android mounts `/sdcard/` with the noexec flag by default, which prevents direct execution of scripts. If you encounter permission issues, you can:
+Android mounts `/sdcard/` with the noexec flag by default, which prevents direct execution of binaries. If you encounter permission issues, you can:
 
-1. Run the script using bash explicitly:
-   ```bash
-   bash android-pin-bruteforce crack
-   ```
+**Note:** The directory name depends on your installation method:
+- `Android-PIN-Bruteforce-main` if you used wget/curl (Option 1) or manual download (Option 3)
+- `Android-PIN-Bruteforce` if you used git clone (Option 2)
 
-2. Or copy the script to a location without noexec, such as `/data/local/tmp/`:
-   
-   First, note that `<installation-directory>` should be replaced with:
-   - `Android-PIN-Bruteforce-main` if you used wget/curl (Option 1) or manual download (Option 3)
-   - `Android-PIN-Bruteforce` if you used git clone (Option 2)
-   
-   Then run:
-   ```bash
-   cp -r /sdcard/<installation-directory> /data/local/tmp/
-   cd /data/local/tmp/<installation-directory>/
-   ./android-pin-bruteforce crack
-   ```
+**Workaround 1:** Run the script using bash explicitly:
+```bash
+bash android-pin-bruteforce crack
+```
+
+**Workaround 2:** Copy the script to a location without noexec, such as `/data/local/tmp/`:
+```bash
+cp -r /sdcard/<installation-directory> /data/local/tmp/
+cd /data/local/tmp/<installation-directory>/
+./android-pin-bruteforce crack
+```
 
 ## Executing the script
 
