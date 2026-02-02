@@ -44,7 +44,98 @@ The USB HID Gadget driver provides emulation of USB Human Interface Devices (HID
 
 ## Installation
 
-TBC
+### Prerequisites
+
+Before installing, ensure you have:
+- A rooted Android phone with Kali NetHunter installed (or any rooted Android device with HID kernel support)
+- Terminal access to your NetHunter device (via SSH or Terminal app)
+- Internet connection on your NetHunter device (for downloading)
+
+### Option 1: Download using wget or curl
+
+Connect to your NetHunter device via SSH or open a terminal app, then run:
+
+```bash
+cd /sdcard/
+wget https://github.com/kallinski997/Android-PIN-Bruteforce/archive/refs/heads/main.zip
+unzip main.zip
+cd Android-PIN-Bruteforce-main/
+chmod +x android-pin-bruteforce
+```
+
+Alternatively, using curl:
+
+```bash
+cd /sdcard/
+curl -LO https://github.com/kallinski997/Android-PIN-Bruteforce/archive/refs/heads/main.zip
+unzip main.zip
+cd Android-PIN-Bruteforce-main/
+chmod +x android-pin-bruteforce
+```
+
+### Option 2: Clone with git
+
+If you have git installed on your NetHunter device:
+
+```bash
+cd /sdcard/
+git clone https://github.com/kallinski997/Android-PIN-Bruteforce.git
+cd Android-PIN-Bruteforce/
+chmod +x android-pin-bruteforce
+```
+
+### Option 3: Manual Download
+
+1. Download the repository as a ZIP file from GitHub: https://github.com/kallinski997/Android-PIN-Bruteforce/archive/refs/heads/main.zip
+2. Extract the ZIP file on your computer
+3. Transfer the extracted folder to your NetHunter device using one of these methods:
+   - Use `adb push` command: `adb push Android-PIN-Bruteforce-main /sdcard/`
+   - Use an SD card to physically transfer the files
+   - Use a file transfer app over WiFi
+4. On your NetHunter device, open a terminal and run:
+   ```bash
+   cd /sdcard/Android-PIN-Bruteforce-main/
+   chmod +x android-pin-bruteforce
+   ```
+
+### Verify Installation
+
+To verify the installation was successful, run:
+
+```bash
+./android-pin-bruteforce version
+```
+
+You should see version information displayed.
+
+### Note about /sdcard/ and noexec flag
+
+Android mounts `/sdcard/` with the noexec flag by default, which prevents direct execution of binaries. If you encounter permission issues, you can use one of these workarounds:
+
+**Workaround 1:** Run the script using bash explicitly:
+```bash
+bash android-pin-bruteforce crack
+```
+
+**Workaround 2:** Copy the script to a location without noexec, such as `/data/local/tmp/`.
+
+The directory name depends on your installation method:
+- `Android-PIN-Bruteforce-main` if you used wget/curl (Option 1) or manual download (Option 3)
+- `Android-PIN-Bruteforce` if you used git clone (Option 2)
+
+Example (if you used wget/curl or manual download):
+```bash
+cp -r /sdcard/Android-PIN-Bruteforce-main /data/local/tmp/
+cd /data/local/tmp/Android-PIN-Bruteforce-main/
+./android-pin-bruteforce crack
+```
+
+Or using the generic placeholder:
+```bash
+cp -r /sdcard/<installation-directory> /data/local/tmp/
+cd /data/local/tmp/<installation-directory>/
+./android-pin-bruteforce crack
+```
 
 ## Executing the script
 
