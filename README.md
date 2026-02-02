@@ -118,15 +118,17 @@ Android mounts `/sdcard/` with the noexec flag by default, which prevents direct
    ```
 
 2. Or copy the script to a location without noexec, such as `/data/local/tmp/`:
+   
+   First, note that `<installation-directory>` should be replaced with:
+   - `Android-PIN-Bruteforce-main` if you used wget/curl (Option 1) or manual download (Option 3)
+   - `Android-PIN-Bruteforce` if you used git clone (Option 2)
+   
+   Then run:
    ```bash
    cp -r /sdcard/<installation-directory> /data/local/tmp/
    cd /data/local/tmp/<installation-directory>/
    ./android-pin-bruteforce crack
    ```
-   
-   Replace `<installation-directory>` with:
-   - `Android-PIN-Bruteforce-main` if you used wget/curl (Option 1) or manual download (Option 3)
-   - `Android-PIN-Bruteforce` if you used git clone (Option 2)
 
 ## Executing the script
 
